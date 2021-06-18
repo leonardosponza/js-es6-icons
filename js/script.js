@@ -100,10 +100,10 @@ const icons = [
 //   milestone1
 
   icons.forEach((element) => {
-      const {name,prefix,family} = element;
+      const {color,name,prefix,family} = element;
       const elementhtml = ` 
       <div>
-      <i class = "${family} ${prefix}${name}"></i>
+      <i class = "${family} ${prefix}${name}" style="color:${color}></i>
       <div class= "title">${name.toUpperCase()}</div>
       </div>`;
     document.getElementById('icone').innerHTML += elementhtml;
@@ -111,3 +111,23 @@ const icons = [
 
     // milestone2
 
+function coloreicone(array){
+    const color = icons.map((element) => {
+        let color = 'purple'
+        if(element.type == 'animal'){
+            color = 'blue'
+        } else if (element.type == 'vegetable'){
+            color = 'green'
+        }
+
+
+        return {
+           ...element,
+           color
+        }
+
+    });
+    return color
+}
+
+const types = [];
