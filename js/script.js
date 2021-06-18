@@ -98,5 +98,6 @@ const icons = [
   ];
 
   icons.forEach((element) => {
-    document.getElementById('icone').innerHTML += (` `);
+    document.getElementById('icone').innerHTML += 
+    (` ${element.family} ${element.prefix} ${element.name}`);
     });
