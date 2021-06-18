@@ -97,7 +97,14 @@ const icons = [
     },
   ];
 
+//   milestone1
+
   icons.forEach((element) => {
-    document.getElementById('icone').innerHTML += 
-    (`${element.family} ${element.prefix} ${element.name}`);
+      const {name,prefix,family} = element;
+      const elementhtml = ` 
+      <div>
+      <i class = " ${family} ${prefix} ${name} "></i>
+      <div class= "title">${name.toUpperCase()}</div>
+      </div>`;
+    document.getElementById('icone').innerHTML += elementhtml;
     });
