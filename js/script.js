@@ -103,8 +103,11 @@ const icons = [
       const {name,prefix,family} = element;
       const elementhtml = ` 
       <div>
-      <i class = " ${family} ${prefix} ${name} "></i>
+      <i class = "${family} ${prefix}${name}"></i>
       <div class= "title">${name.toUpperCase()}</div>
       </div>`;
     document.getElementById('icone').innerHTML += elementhtml;
     });
+
+    // milestone2
+
