@@ -98,37 +98,69 @@ const icons = [
   ];
   print(icons);
   
+  const types =[];
+
+  const coloredArray = colorIcons(icons);
+  printIcons(coloredArray)
+
+  coloredArray.foreach((element)=>{
+    if(!types.includes(element.type)){
+      types.push(element.type);
+      document.getElementById('type').innerHTML +=
+      `
+      <option value="${element.type}">${element.type}</option>
+      `
+    }
+    
+  });
+
+  const select = document.getElementById('type');
+
+  select.addEventListener("change",function(){
+    const valoreselect = select.value;
+    const filteredIcons = coloredArray.filter((element)=>{
+      return element.type == valoreselectselect;
+    });
+
+    printIcons(filteredIcons);
+    if(valoreselect = 'All'){
+      printIcons(coloredArray);
+    }
+  })
+
   /*----- funzioni ---- */
-   function print(array){
-  
+   function printIcons(array){
+    document.getElementById('icons').innerHTML += '';
     array.forEach((element) => {
-      console.log(element);
   
-      const {name, prefix, family} = element;
+      const { color, name, prefix, family} = element;
   
       const elementHTML = `
       <div>
-        <i class="${family} ${prefix}${name}"></i>
+        <i class="${family} ${prefix}${name}" style="color:${color}"></i>
         <div class="title">${name.toUpperCase()}</div>
       </div>
       `;
   
-      document.getElementById('icons').innerHTML += elementHTML;
+      
     
     });
   
    }
 
   //  milestone 2
-
-  const coloredArray = icons.map((element) => {
+function colorIcons(array){
+  const coloredArray = array.map((element) => {
     let color = 'purple';
     if(element.type == 'animal'){
       color = 'blue';
     } else if (element.type == 'vegetable')
     color = 'orange'
        return {
-         ... element
+         ... element,
+             color
        }
 
   });
+  return coloredArray
+}
