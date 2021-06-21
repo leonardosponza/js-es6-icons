@@ -96,7 +96,6 @@ const icons = [
       family: 'fas',
     },
   ];
-
   print(icons);
   
   /*----- funzioni ---- */
@@ -119,3 +118,17 @@ const icons = [
     });
   
    }
+
+  //  milestone 2
+
+  const coloredArray = icons.map((element) => {
+    let color = 'purple';
+    if(element.type == 'animal'){
+      color = 'blue';
+    } else if (element.type == 'vegetable')
+    color = 'orange'
+       return {
+         ... element
+       }
+
+  });
