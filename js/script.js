@@ -99,16 +99,25 @@ const icons = [
 
 //   milestone1
 
-  icons.forEach((element) => {
-      const {color,name,prefix,family} = element;
-      const elementhtml = ` 
-      <div>
-      <i class = "${family} ${prefix}${name}" style="color:${color}></i>
-      <div class= "title">${name.toUpperCase()}</div>
-      </div>`;
-    document.getElementById('icone').innerHTML += elementhtml;
-    });
+function print(array){
 
+  array.forEach((element) => {
+    console.log(element);
+
+    const {name, prefix, family} = element;
+
+    const elementHTML = `
+    <div>
+      <i class="${family} ${prefix}${name}"></i>
+      <div class="title">${name.toUpperCase()}</div>
+    </div>
+    `;
+
+    document.getElementById('icons').innerHTML += elementHTML;
+  
+  });
+
+ }
     // milestone2
 
 function coloreicone(array){
