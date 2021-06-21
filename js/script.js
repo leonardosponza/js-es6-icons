@@ -131,3 +131,29 @@ function coloreicone(array){
 }
 
 const types = [];
+
+// milestone3
+
+let typeIcons = [];
+colorIcon.forEach((element) => {
+    if(!typeIcons.includes(element.type)){
+        typeIcons.push(element.type);
+        document.getElementById('filter-select').innerHTML += 
+        `<option value=${element.type}>${element.type}</option>`;
+    }
+});
+
+console.log(typeIcons);
+
+
+filterType.addEventListener("change", function() {
+    let iconsShow;
+
+    iconsShow = colorIcon;
+    if(this.value != 'all'){
+        iconsShow = colorIcon.filter((element) => element.type == this.value);
+    }
+
+    resetHtml();
+    printColorIcon(iconsShow);
+});
